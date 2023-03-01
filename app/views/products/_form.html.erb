@@ -22,6 +22,13 @@
   </div>
 
   <div>
+        <%= form.label :category, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+          <%= form.select :category_id, current_shop.categories.all.map { |s| [s.name, s.id] }, class: "max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md" %>
+        </div>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

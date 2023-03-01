@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    @product = current_shop.products.build
   end
 
   # GET /products/1/edit
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_shop.products.build(product_params)
 
     respond_to do |format|
       if @product.save
@@ -65,6 +65,10 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :amount_cent)
+      params.require(:product).permit(:name, :amount_cent, :category_id).merge(shop_id)
+    end
+
+    def shop_id
+      { shop_id: current_shop.id }
     end
 end

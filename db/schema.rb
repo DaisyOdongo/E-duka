@@ -61,8 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_024454) do
     t.datetime "activated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id", null: false
-    t.index ["category_id"], name: "index_shops_on_category_id"
   end
 
   add_foreign_key "cartitems", "carts"
@@ -70,5 +68,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_024454) do
   add_foreign_key "categories", "shops"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "shops"
-  add_foreign_key "shops", "categories"
 end
