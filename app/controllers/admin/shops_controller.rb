@@ -1,4 +1,6 @@
-class ShopsController < ApplicationController
+class Admin::ShopsController < ApplicationController
+  layout 'admin/base'
+
   before_action :set_shop, only: %i[ show edit update destroy ]
 
   # GET /shops or /shops.json

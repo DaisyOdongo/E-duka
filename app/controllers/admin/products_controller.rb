@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
   # GET /products or /products.json
@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :amount_cent, :category_id).merge(shop_id)
+      params.require(:product).permit(:name, :amount_cent, :image, :category_id).merge(shop_id)
     end
 
     def shop_id
