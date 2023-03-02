@@ -1,62 +1,45 @@
-<%= form_with model: [:admin, shop] do |form| %>
-  <% if shop.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+<div class="flex items-center justify-center p-12 mt-6 mx-6">
+  <div class="mx-auto w-full max-w-[550px]">
+      <%= form_with model: [:admin, @shop] do |form| %>
+      <div>
+        <%= form.label :name, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <%= form.text_field :name, class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %>
+      </div>
 
-      <ul>
-        <% shop.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <div>
+        <%= form.label :address, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <%= form.text_field :address, class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %>
+      </div>
+
+      <div>
+        <%= form.label :email, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <%= form.text_field :email, class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %>
+      </div>
+
+      <div>
+        <%= form.label :description, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <%= form.text_field :description, class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %>
+      </div>
+
+      <div>
+        <%= form.label :payment_option, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <%= form.text_field :payment_option, class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %>
+      </div>
+
+      <div>
+        <%= form.label :payment_details, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <%= form.text_field :payment_details, class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %>
+      </div>
+
+      <div>
+        <%= form.label :activation_code, style: "display: block", class: "mb-3 block text-base font-medium text-[#07074D]" %>
+        <%= form.text_field :activation_code, class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %>
+      </div>
+
+      <div class="mt-4">
+        <%= form.submit "Update Shop", class: "flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500" %>
+      </div>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
   </div>
-
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :payment_option, style: "display: block" %>
-    <%= form.text_field :payment_option %>
-  </div>
-
-  <div>
-    <%= form.label :payment_details, style: "display: block" %>
-    <%= form.text_field :payment_details %>
-  </div>
-
-  <div>
-    <%= form.label :activation_code, style: "display: block" %>
-    <%= form.text_field :activation_code %>
-  </div>
-
-  <div>
-    <%= form.label :activated, style: "display: block" %>
-    <%= form.text_field :activated %>
-  </div>
-
-  <div>
-    <%= form.label :activated_at, style: "display: block" %>
-    <%= form.text_field :activated_at %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

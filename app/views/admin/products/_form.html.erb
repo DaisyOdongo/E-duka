@@ -29,6 +29,11 @@
   </div>
 
   <div>
+    <%= form.label :product_image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

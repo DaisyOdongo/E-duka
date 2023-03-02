@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+
+  <%= render "shared/header" %>
+    <main class="mt-8">
+      <%= yield %>
+    </main>
+  <%= render "shared/footer" %>
+  
   </body>
 </html>
