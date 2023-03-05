@@ -1,4 +1,4 @@
-ame: Tests
+name: Tests
 on: [push, pull_request]
 jobs:
   tests:
@@ -17,6 +17,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -43,6 +44,7 @@ jobs:
       - name: Install packages
         run: |
           yarn install --pure-lockfile
+
       - name: Build and Run test
         env:
           RAILS_ENV: test
@@ -54,6 +56,7 @@ jobs:
           bin/rails db:create
           bin/rails db:schema:load
           bundle exec rspec
+
       - name: Create Coverage Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -73,6 +76,7 @@ jobs:
     - name: Install Brakeman
       run: |
         gem install brakeman
+
     - name: Run Brakeman
       run: |
         brakeman -f json > tmp/brakeman.json || exit 0
